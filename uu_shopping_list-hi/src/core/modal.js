@@ -20,10 +20,9 @@ const Modal = createVisualComponent({
   },
 
   render(props) {
-    const [title, setTitle] = useState(props.title);
-    const [description, setDescription] = useState(props.description);
+    const [title, setTitle] = useState(props.initialData.title);
+    const [description, setDescription] = useState(props.initialData.description);
     const [users, setUsers] = useState(props.users);
-
     if (!props.show) {
       return null;
     }

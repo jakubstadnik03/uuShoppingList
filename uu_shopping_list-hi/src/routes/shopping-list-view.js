@@ -1,7 +1,7 @@
 import { createVisualComponent, useState } from "uu5g05";
 import RouteBar from "../core/route-bar";
 import Modal from "../core/modal";
-
+import ListProvider from "../bricks/list-provider";
 const Css = {
   main: () => ({
     maxWidth: "1200px",
@@ -124,6 +124,7 @@ const Css = {
     fontSize: "16px",
     cursor: "pointer",
   }),
+  ownerItem: () => ({}),
   tooltip: () => ({
     position: "absolute",
     background: "#333",
@@ -141,6 +142,21 @@ const ShoppingListView = createVisualComponent({
   propTypes: {},
   defaultProps: {},
   render(props) {
+    const shoppingListData = {
+      id: 1,
+      title: "Nákup na víkend",
+      description: "Tento seznam je určený pro potraviny, který mi vystačí na víkend",
+      created_by: 1,
+      items: [
+        { name: "Vajíčka", checked: true },
+        { name: "paprika", checked: false },
+        { name: "okurka", checked: true },
+        { name: "máslo", checked: false },
+        { name: "pepř", checked: true },
+      ],
+      members: [123, 2, 3, 4, 1],
+      archived: false,
+    };
     const [showEditModal, setShowEditModal] = useState(false);
     const [editData, setEditData] = useState({
       title: props.shoppingList.title,
@@ -195,48 +211,6 @@ const ShoppingListView = createVisualComponent({
     const handleToggleChecked = () => {
       setShowChecked(!showChecked);
     };
-    const users = [
-      {
-        _id: "ObjectId('6178a5b4f98abc1290ef4b18')",
-        username: "mike_jones",
-        name: "Mike",
-        surname: "Jones",
-        email: "mike_jones@example.com",
-        password: "$2a$10$c/svOeL.8sfz8Yz/U3Ry1O",
-        created_at: "2023-10-25T00:00:00Z",
-        shopping_lists: ["ObjectId('6178a5b4f98abc1290ef4b1c')"],
-      },
-      {
-        _id: "ObjectId('6178a5b4f98abc1290ef4b19')",
-        username: "lucy_white",
-        name: "Lucy",
-        surname: "White",
-        email: "lucy_white@example.com",
-        password: "$2a$10$A6.XiOu7S9Vz2.aErJ9eTe",
-        created_at: "2023-10-24T00:00:00Z",
-        shopping_lists: ["ObjectId('6178a5b4f98abc1290ef4b1d')"],
-      },
-      {
-        _id: "ObjectId('6178a5b4f98abc1290ef4b1a')",
-        username: "paul_brown",
-        name: "Paul",
-        surname: "Brown",
-        email: "paul_brown@example.com",
-        password: "$2a$10$V5XqNO3L.ik8G.xzAJsHeu",
-        created_at: "2023-10-23T00:00:00Z",
-        shopping_lists: ["ObjectId('6178a5b4f98abc1290ef4b1e')"],
-      },
-      {
-        _id: "ObjectId('6178a5b4f98abc1290ef4b1b')",
-        username: "emma_johnson",
-        name: "Emma",
-        surname: "Johnsn",
-        email: "emma_johnson@example.com",
-        password: "$2a$10$N9pDjioI.9.Hu3XvLq7xMe",
-        created_at: "2023-10-22T00:00:00Z",
-        shopping_lists: ["ObjectId('6178a5b4f98abc1290ef4b1f')"],
-      },
-    ];
 
     return (
       <>
@@ -252,20 +226,31 @@ const ShoppingListView = createVisualComponent({
             <div style={{ display: "flex" }}>
               <h1 style={Css.title()}>{editData.title}</h1>
               <div style={Css.memberList()}>
-                {users &&
-                  users.map((user, index) => (
-                    <div
-                      key={index}
-                      style={Css.memberItem()}
-                      onMouseOver={() => handleMouseOver(index)}
-                      onMouseOut={handleMouseOut}
-                    >
-                      {user.name.substring(0, 2).toUpperCase()}
-                      {hoveredUserIndex === index && (
-                        <span style={Css.tooltip()}>{`${user.name} ${user.surname}`}</span>
-                      )}
-                    </div>
-                  ))}
+                <ListProvider>
+                  {({ users }) => (
+                    <>
+                      {users
+                        .filter((user) => props.shoppingList.members.includes(user.id))
+                        .map((user, index) => (
+                          <div
+                            key={index}
+                            style={
+                              user.id === props.shoppingList.created_by
+                                ? { ...Css.memberItem(), border: "2px solid #00CB45" }
+                                : Css.memberItem()
+                            }
+                            onMouseOver={() => handleMouseOver(index)}
+                            onMouseOut={handleMouseOut}
+                          >
+                            {user.name.substring(0, 2).toUpperCase()}
+                            {hoveredUserIndex === index && (
+                              <span style={Css.tooltip()}>{`${user.name} ${user.surname}`}</span>
+                            )}
+                          </div>
+                        ))}
+                    </>
+                  )}
+                </ListProvider>
               </div>
             </div>
             <button onClick={handleEditIconClick} style={Css.editIcon()}>

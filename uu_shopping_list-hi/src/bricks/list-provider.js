@@ -7,7 +7,7 @@ let shoppingLists = [
     id: 1,
     title: "Nákup na víkend",
     description: "Tento seznam je určený pro potraviny, který mi vystačí na víkend",
-    ownerId: 1,
+    created_by: 888,
     items: [
       { name: "Vajíčka", checked: true },
       { name: "paprika", checked: false },
@@ -15,6 +15,8 @@ let shoppingLists = [
       { name: "máslo", checked: false },
       { name: "pepř", checked: true },
     ],
+    members: [123, 2, 3, 4, 888],
+    archived: false,
   },
   {
     id: 2,
@@ -133,179 +135,46 @@ let shoppingLists = [
       { name: "Socks", checked: false },
     ],
   },
-  // Add more shopping lists as needed
 ];
-// let shoppingList = [
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4c01')",
-//     name: "Nákup na víkend",
-//     created_by: "ObjectId('6178a5b4f98abc1290ef4b16')",
-//     members: ["ObjectId('6178a5b4f98abc1290ef4b16')"],
-//     items: [
-//       { name: "Vajíčka", completed: true },
-//       { name: "paprika", completed: false },
-//       { name: "okurka", completed: true },
-//       { name: "máslo", completed: false },
-//       { name: "pepř", completed: true },
-//     ],
-//     created_at: "2023-10-27T00:00:00Z",
-//   },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4c02')",
-//     name: "Groceries for the Week",
-//     created_by: "ObjectId('6178a5b4f98abc1290ef4b17')",
-//     members: ["ObjectId('6178a5b4f98abc1290ef4b17')"],
-//     items: [
-//       { name: "Apples", completed: false },
-//       { name: "Bread", completed: false },
-//       { name: "Milk", completed: false },
-//       { name: "Cheese", completed: false },
-//       { name: "Tomatoes", completed: false },
-//     ],
-//     created_at: "2023-10-26T00:00:00Z",
-//   },
-// {
-//   _id: "ObjectId('6178a5b4f98abc1290ef4c03')",
-//   name: "Home Improvement",
-//   created_by: "ObjectId('6178a5b4f98abc1290ef4b18')",
-//   members: ["ObjectId('6178a5b4f98abc1290ef4b18')"],
-//   items: [
-//     { name: "Paint", completed: false },
-//     { name: "Brushes", completed: false },
-//     { name: "Nails", completed: false },
-//     { name: "Hammer", completed: false },
-//     { name: "Screws", completed: false },
-//   ],
-//   created_at: "2023-10-25T00:00:00Z",
-// },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4c04')",
-//     name: "Holiday Shopping",
-//     created_by: "ObjectId('6178a5b4f98abc1290ef4b19')",
-//     members: ["ObjectId('6178a5b4f98abc1290ef4b19')"],
-//     items: [
-//       { name: "Gift 1", completed: false },
-//       { name: "Gift 2", completed: false },
-//       { name: "Gift 3", completed: false },
-//       { name: "Gift 4", completed: false },
-//       { name: "Gift 5", completed: false },
-//     ],
-//     created_at: "2023-10-24T00:00:00Z",
-//   },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4c05')",
-//     name: "Office Supplies",
-//     created_by: "ObjectId('6178a5b4f98abc1290ef4b16')",
-//     members: ["ObjectId('6178a5b4f98abc1290ef4b16')"],
-//     items: [
-//       { name: "Notepads", completed: false },
-//       { name: "Pens", completed: false },
-//       { name: "Printer Paper", completed: false },
-//       { name: "Stapler", completed: false },
-//       { name: "Folders", completed: false },
-//     ],
-//     created_at: "2023-10-23T00:00:00Z",
-//   },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4c06')",
-//     name: "Pet Store",
-//     created_by: "ObjectId('6178a5b4f98abc1290ef4b17')",
-//     members: ["ObjectId('6178a5b4f98abc1290ef4b17')"],
-//     items: [
-//       { name: "Dog Food", completed: true },
-//       { name: "Cat Litter", completed: false },
-//       { name: "Toys", completed: false },
-//       { name: "Leash", completed: false },
-//       { name: "Pet Shampoo", completed: false },
-//     ],
-//     created_at: "2023-10-22T00:00:00Z",
-//   },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4c07')",
-//     name: "Gardening",
-//     created_by: "ObjectId('6178a5b4f98abc1290ef4b18')",
-//     members: ["ObjectId('6178a5b4f98abc1290ef4b18')"],
-//     items: [
-//       { name: "Shovel", completed: false },
-//       { name: "Gloves", completed: false },
-//       { name: "Seeds", completed: false },
-//       { name: "Hose", completed: false },
-//       { name: "Pots", completed: false },
-//     ],
-//     created_at: "2023-10-21T00:00:00Z",
-//   },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4c08')",
-//     name: "Electronics Store",
-//     created_by: "ObjectId('6178a5b4f98abc1290ef4b19')",
-//     members: ["ObjectId('6178a5b4f98abc1290ef4b19')"],
-//     items: [
-//       { name: "Laptop", completed: false },
-//       { name: "Smartphone", completed: false },
-//       { name: "Headphones", completed: false },
-//       { name: "Tablet", completed: false },
-//       { name: "Chargers", completed: false },
-//     ],
-//     created_at: "2023-10-20T00:00:00Z",
-//   },
-// ];
-// let user = [
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4b16')",
-//     username: "john_doe",
-//     email: "john_doe@example.com",
-//     password: "$2a$10$7.iiS0Uz.Z/GEJw6JrJx7u", // This is a hashed password representation
-//     created_at: "2023-10-27T00:00:00Z",
-//     shopping_lists: ["ObjectId('6178a5b4f98abc1290ef4b1a')"],
-//   },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4b17')",
-//     username: "jane_smith",
-//     email: "jane_smith@example.com",
-//     password: "$2a$10$o.Jq2sZU8d6p30Sb6F6z5e",
-//     created_at: "2023-10-26T00:00:00Z",
-//     shopping_lists: ["ObjectId('6178a5b4f98abc1290ef4b1b')"],
-//   },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4b18')",
-//     username: "mike_jones",
-//     email: "mike_jones@example.com",
-//     password: "$2a$10$c/svOeL.8sfz8Yz/U3Ry1O",
-//     created_at: "2023-10-25T00:00:00Z",
-//     shopping_lists: ["ObjectId('6178a5b4f98abc1290ef4b1c')"],
-//   },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4b19')",
-//     username: "lucy_white",
-//     email: "lucy_white@example.com",
-//     password: "$2a$10$A6.XiOu7S9Vz2.aErJ9eTe",
-//     created_at: "2023-10-24T00:00:00Z",
-//     shopping_lists: ["ObjectId('6178a5b4f98abc1290ef4b1d')"],
-//   },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4b1a')",
-//     username: "paul_brown",
-//     email: "paul_brown@example.com",
-//     password: "$2a$10$V5XqNO3L.ik8G.xzAJsHeu",
-//     created_at: "2023-10-23T00:00:00Z",
-//     shopping_lists: ["ObjectId('6178a5b4f98abc1290ef4b1e')"],
-//   },
-//   {
-//     _id: "ObjectId('6178a5b4f98abc1290ef4b1b')",
-//     username: "emma_johnson",
-//     email: "emma_johnson@example.com",
-//     password: "$2a$10$N9pDjioI.9.Hu3XvLq7xMe",
-//     created_at: "2023-10-22T00:00:00Z",
-//     shopping_lists: ["ObjectId('6178a5b4f98abc1290ef4b1f')"],
-//   },
-// ];
+let users = [
+  {
+    id: 888,
+    name: "Mike",
+    surname: "Jones",
+    shopping_lists: [1],
+  },
+  {
+    id: 123,
+    name: "Lucy",
+    surname: "White",
+    shopping_lists: [1],
+  },
+  {
+    id: 3,
+    name: "Paul",
+    surname: "Brown",
+    shopping_lists: [1],
+  },
+  {
+    id: 2,
+    name: "Emma",
+    surname: "Johnsn",
+    shopping_lists: [1],
+  },
+  {
+    id: 8,
+    name: "Nejsem",
+    surname: "Tam",
+    shopping_lists: [3],
+  },
+];
 
 const ListProvider = createComponent({
   //@@viewOn:statics
   uu5Tag: Config.TAG + "ListProvider",
   //@@viewOff:statics
   render(props) {
-    const value = { shoppingLists };
+    const value = { shoppingLists, users };
     return typeof props.children === "function" ? props.children(value) : props.children;
   },
 });
