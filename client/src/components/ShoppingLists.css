@@ -1,0 +1,87 @@
+.shoppingList {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .shoppingList {
+    /* Additional styles if needed */
+  }
+  
+  .shoppingListBox {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: grid;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .shoppingListTitle {
+    font-size: 18px;
+    color: #00CB45;
+    text-align: center;
+    margin: 0;
+    text-decoration: none;
+  }
+  
+  .shoppingListDescription {
+    font-size: 14px;
+  }
+  
+  .shoppingListItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .shoppingListItemsBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0;
+  }
+  
+  .shoppingListItemsList {
+    list-style-type: disc;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .moreItems {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .list-checked {
+    text-decoration: line-through;
+  }
+  
+  .list-more-items {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  /* Additional styles for archived lists */
+.archived {
+    position: relative;
+  }
+  
+
+  
+  /* Style for the archived text label */
+
+  
+  /* If you prefer the text to be a badge instead of plain text */
+  .text-danger {
+
+    padding: 0.2em 0.4em;
+    font-size: 0.75em;
+    border-radius: 0.2em;
+  }
+  

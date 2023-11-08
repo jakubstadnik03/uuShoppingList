@@ -1,0 +1,9 @@
+.btn-primary {
+  background-color: #00CB45 !important; /* Your desired primary color */
+  border-color: #00CB45 !important;
+}
+
+.btn-secondary {
+  background-color: #6c757d !important; /* Your desired secondary color */
+  border-color: #6c757d !important;
+}
