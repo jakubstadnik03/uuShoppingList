@@ -12,7 +12,7 @@ async function removeItemFromShoppingListAbl(shoppingListId, itemId) {
 
     // Find the index of the item to be removed
     const itemIndex = shoppingList.items.findIndex(
-      (item) => item.id === itemId
+      (item) => item.id.toString() === itemId.toString()
     );
     if (itemIndex === -1) {
       throw new Error("Item not found in shopping list.");

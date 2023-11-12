@@ -27,7 +27,7 @@ const mockUsers = [
     id: 2,
     name: "Karel",
     surname: "Poláček",
-    shopping_lists: [1],
+    shopping_lists: [3],
   },
 ];
 

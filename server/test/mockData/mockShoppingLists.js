@@ -1,4 +1,4 @@
-const mockShoppingLists = [
+let mockShoppingLists = [
   {
     id: 1,
     title: "Nákup na víkend",
@@ -13,18 +13,18 @@ const mockShoppingLists = [
       { id: 5, name: "pepř", checked: true },
     ],
     members: [
-      { id: 123, name: "Jakub Stadnik" },
+      { id: 123, name: "Jakub Stádník" },
       { id: 2, name: "karel Poláček" },
     ],
     archived: false,
   },
   {
-    id: 69,
+    id: "69ahoj",
     title: "Nákup na mars",
     description: "Tento nákup vás dostane na mars",
     created_by: { id: 123, name: "Jakub Stádník" },
     items: [
-      { id: 1, name: "raketa", checked: true },
+      { id: "shvosvhoi", name: "raketa", checked: false },
       { id: 2, name: "oblek", checked: false },
       { id: 3, name: "okurka", checked: true },
       { id: 4, name: "boty", checked: false },
@@ -58,7 +58,7 @@ const mockShoppingLists = [
     id: 3,
     title: "I AM NOT THE OWNER",
     description: "List of items for home improvement",
-    created_by: { id: 2, name: "karel Poláček" },
+    created_by: { id: 2, name: "Karel Poláček" },
     items: [
       { id: 1, name: "Paint", checked: false },
       { id: 2, name: "Brushes", checked: false },
@@ -66,10 +66,7 @@ const mockShoppingLists = [
       { id: 4, name: "Hammer", checked: false },
       { id: 5, name: "Screws", checked: false },
     ],
-    members: [
-      { id: 123, name: "Jakub Stadnik" },
-      { id: 2, name: "karel Poláček" },
-    ],
+    members: [{ id: 2, name: "Karel Poláček" }],
     archived: false,
   },
   {
